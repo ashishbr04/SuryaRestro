@@ -1,0 +1,22 @@
+﻿@model IEnumerable<restruent2.Models.MenuItem>
+@{
+    ViewBag.Title = "Your Cart";
+}
+<h2>Your Cart</h2>
+@if (!Model.Any())
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <strong>@item.Name</strong> - $@item.Price<br />
+                <img src="@Url.Content(item.ImageUrl)" alt="@item.Name" style="height:100px;" />
+            </li>
+        }
+    </ul>
+    <p><strong>Total:</strong> $@Model.Sum(i => i.Price)</p>
+}

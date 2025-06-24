@@ -1,0 +1,37 @@
+﻿@model IEnumerable<restruent2.Models.MenuItem>
+@{
+    ViewBag.Title = "Menu";
+}
+<link href="~/Content/menu.css" rel="stylesheet" />
+
+
+<div class="menu-section">
+    <h2>MENU</h2>
+    <nav class="menu-nav">
+        <span>Starters</span>
+        <span>Main Course</span>
+        <span>Desserts</span>
+        <span>Price</span>
+    </nav>
+    <div class="menu-items">
+        @foreach (var item in Model)
+        {
+            <div class="menu-item">
+                <img src="@Url.Content(item.ImageUrl)" alt="@item.Name" />
+                <div class="menu-details">
+                    <h3>@item.Name</h3>
+                    <p class="menu-sub">@item.Description</p>
+                    <p class="menu-text">WELCOME TO SURYA RESTRO.</p>
+                </div>
+                <div class="menu-price">₹ @item.Price</div>
+                <input type="button" value="+" class="AddRemoveBtn" />
+                <input type="button" value="-" class="AddRemoveBtn" />
+
+            </div>
+            
+        }
+    </div>
+    <div class="menu-button">
+        <button>Order Now</button>
+    </div>
+</div>
